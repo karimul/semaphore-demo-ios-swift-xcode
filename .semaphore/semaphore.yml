@@ -114,7 +114,7 @@ blocks:
       jobs:
         - name: Screenshots
           commands:
-            - bundle exec xcversion select 12.2
+            - bundle exec xcversion select 14.1
 
             # Fix for fastlane snapshot not allways finding the simular.
             # In case you find errors like "Simulator not found", use this workarround
