@@ -18,7 +18,7 @@ name: Tallest Towers
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-xcode12
+    os_image: macos-xcode14
 
 # Blocks are the heart of a pipeline and are executed sequentially. Each block
 # has a task that defines one or more parallel jobs. Jobs define commands that
@@ -79,7 +79,6 @@ blocks:
           # Continue with checkout as normal
           - checkout
           - cache restore
-          
 
           # Fix for: `find_spec_for_exe': can't find gem bundler erro
           # Look at the end of Gemfile.lock, under BUNDLED WITH
@@ -105,7 +104,7 @@ blocks:
         commands:
           - checkout
           - cache restore
-          
+
           # Fix for: `find_spec_for_exe': can't find gem bundler erro
           # Look at the end of Gemfile.lock, under BUNDLED WITH
           # and simply install the required version before calling bundle install
