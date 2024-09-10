@@ -29,21 +29,21 @@ Then, generate ad hoc signing certificates and provisioning profiles. Quit Xcode
 
 ```shell
 bundle exec fastlane match adhoc
-``` 
+```
 
 Finally, open `TallestTowers.xcodeproj` with Xcode again and make the following changes:
 
-* Select the `TallestTowers` target in the project and switch to the "Signing and Capabilities" tab.
-* Uncheck the "Automatically manage signing" checkbox.
-* Select `match AdHoc com.semaphoreci.TallestTowers` from the "Provisioning Profile" drop-down.
+- Select the `TallestTowers` target in the project and switch to the "Signing and Capabilities" tab.
+- Uncheck the "Automatically manage signing" checkbox.
+- Select `match AdHoc com.semaphoreci.TallestTowers` from the "Provisioning Profile" drop-down.
 
 ## Run the CI pipeline locally
 
 Now that code signing is configured, you should be able to test the CI pipeline locally. An example `Fastfile` has been included in this project which is configured to:
 
-* `build`: Build the app and archive an ad hoc IPA file.
-* `test`: Build the app and run the unit and UI tests.
-* `screenshots`: Build the app and generate sample App Store screenshots.
+- `build`: Build the app and archive an ad hoc IPA file.
+- `test`: Build the app and run the unit and UI tests.
+- `screenshots`: Build the app and generate sample App Store screenshots.
 
 To run the CI pipeline locally, execute the following commands from the project directory in Terminal:
 
@@ -67,9 +67,9 @@ To run the CI for this example app yourself, add your fork of this repository as
 1. Create a new SSH public/private key pair on your local machine with `ssh-keygen`. For more information on doing this, see [Using Private Dependencies](https://docs.semaphoreci.com/article/109-using-private-dependencies).
 2. Add the public key as a deploy key to your private `match` repository. For more information, if you're using GitHub to host the repository, see [Managing Deploy Keys](https://developer.github.com/v3/guides/managing-deploy-keys/).
 3. From [your Semaphore dashboard](https://id.semaphoreci.com/init_auth), select "Secrets" under "Configuration".
-4. Create a new secret with the name `match-secrets`. The secret does not *need* to be named this, but this is the name used in this example project's `semaphore.yml`.
+4. Create a new secret with the name `match-secrets`. The secret does not _need_ to be named this, but this is the name used in this example project's `semaphore.yml`.
 5. Under "Environment Variables", enter `MATCH_PASSWORD` as the variable name and enter the password you created when running `bundle exec fastlane match adhoc`.
-6. Under "Files", enter `/Users/semaphore/.ssh/match-repository-private-key` as the path to the file that will be created on the CI server, and upload the *private* key. Again, the file path does not *need* to use this path or file name but this is the location that this example project's `semaphore.yml` is configured to expect.
+6. Under "Files", enter `/Users/semaphore/.ssh/match-repository-private-key` as the path to the file that will be created on the CI server, and upload the _private_ key. Again, the file path does not _need_ to use this path or file name but this is the location that this example project's `semaphore.yml` is configured to expect.
 
 Your secret should look like this:
 
@@ -89,12 +89,11 @@ The `master` branch represents a template you can follow to setup your own proje
 
 For simplicity, on the `fork-and-run` branch we disabled the signing capabilities of this template project so you can safely `fork` and imediatelly `run` it on Semaphore.
 
-The lines that have been commented out for this purpose are clearly marked as 
+The lines that have been commented out for this purpose are clearly marked as
 
-```##### Disable code signing for fork-and-run branch ######```
+`##### Disable code signing for fork-and-run branch ######`
 
 so you can clearly see what has been removed.
-
 
 ## License
 
